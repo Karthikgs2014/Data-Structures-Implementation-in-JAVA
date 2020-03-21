@@ -40,6 +40,7 @@ class singlyLinkedList<T>{
         node.next=cur;//make new node to point cur node
         head.next=node;//make head to point new node
     }
+    
     //Add's New Node to the End of the List
     public void addLast(T data){
         //Creation of a Node
@@ -56,6 +57,7 @@ class singlyLinkedList<T>{
             cur=cur.next;
         cur.next=node;
     }
+    
     //Removes the Node which contains the data
     public void remove(T data) throws underFlowException{
         if(head.next==null){
@@ -81,7 +83,8 @@ class singlyLinkedList<T>{
                 del=null;
         }
     }
-    //removes the first Node of the List
+    
+    //Removes the first Node of the List
     public void removeFirst() throws underFlowException{
         if(head.next==null){
             throw new underFlowException("There is No Data to Remove");      
@@ -91,7 +94,8 @@ class singlyLinkedList<T>{
         head.next=del.next;
         del=null;//Delete the node and make eligiable for garbage collection
     }
-    //removes the Last Node of the List
+    
+    //Removes the Last Node of the List
     public void removeLast() throws underFlowException{
         if(head.next==null){
             throw new underFlowException("There is No Data to Print");      
@@ -105,6 +109,7 @@ class singlyLinkedList<T>{
         pre.next=null;
         cur=null;//Delete the node and make eligiable for garbage collection
     }
+    
     //Return's the list as an Object array
     public Object[] getList() throws underFlowException{
          if(head.next==null){
@@ -121,6 +126,7 @@ class singlyLinkedList<T>{
         return list;  
     }
 }
+
 //Custom Exception to handle Exception when there is No Data to perfoem operations
 class underFlowException extends Exception{
     public underFlowException(String message) {

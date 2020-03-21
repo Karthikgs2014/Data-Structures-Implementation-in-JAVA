@@ -11,8 +11,11 @@ class singlyLinkedList<T>{
             //To Create header Node
         }     
     }
+    
     private Node head=new Node();//header of a Linked List
-    private int length=0;
+    private int length=0;//Holds length of list
+    
+    //Returns length of the list
     public int getLength(){
         if(head.next==null)return 0;
         Node cur=head.next;
@@ -22,8 +25,22 @@ class singlyLinkedList<T>{
         }
         return length+1;
     }
-    //Adds New Node to the List
-    public void addNode(T data){
+    
+    //Add's Node to the begining of the List
+    public void addFirst(T data){
+        //Creation of a Node
+        Node node=new Node(data,null);
+        //Insertion of First Node
+        if(head.next==null){
+            head.next=node;
+            return;
+        }
+        Node cur=head.next;//Mark first node as cur
+        node.next=cur;//make new node to point cur node
+        head.next=node;//make head to point new node
+    }
+    //Add's New Node to the End of the List
+    public void addLast(T data){
         //Creation of a Node
         Node node=new Node(data,null);
         //Insertion of First Node
@@ -39,7 +56,7 @@ class singlyLinkedList<T>{
         cur.next=node;
     }
     //Removes the Node which contains the data
-    public void removeNode(T data) throws underFlowException{
+    public void remove(T data) throws underFlowException{
         if(head.next==null){
             throw new underFlowException("There is No Data to Print");      
         }
@@ -87,6 +104,7 @@ class singlyLinkedList<T>{
         pre.next=null;
         cur=null;//Delete the node and make eligiable for garbage collection
     }
+    //Return's the list as an Object array
     public Object[] getList() throws underFlowException{
          if(head.next==null){
             throw new underFlowException("There is No Data to Print");      

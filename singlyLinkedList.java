@@ -1,3 +1,4 @@
+package linkedList;
 class singlyLinkedList<T>{
     //Node Class have the capability to hold a Data and Address of a Next Node
     private class Node{   
